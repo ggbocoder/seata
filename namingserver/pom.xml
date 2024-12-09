@@ -241,11 +241,25 @@
                             <mvn.build.version>${project.version}</mvn.build.version>
                         </labels>
                         <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+                        <entrypoint>
+                            <arg>/bin/bash</arg>
+                            <arg>/seata-naming-server-entrypoint.sh</arg>
+                        </entrypoint>
                         <environment>
                             <TZ>Asia/Shanghai</TZ>
                         </environment>
                     </container>
                     <extraDirectories>
+                        <paths>
+                            <path>
+                                <from>src/main/resources/docker</from>
+                                <includes>seata-naming-server-entrypoint.sh</includes>
+                            </path>
+                            <path>
+                                <from>../distribution/bin</from>
+                                <includes>seata-namingserver-setup.sh</includes>
+                            </path>
+                        </paths>
                     </extraDirectories>
                     <skip>${image.publish.skip}</skip>
                     <allowInsecureRegistries>true</allowInsecureRegistries>
