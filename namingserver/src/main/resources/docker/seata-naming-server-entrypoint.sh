@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-# entrypoint for server
+# entrypoint for namingserver
 
 . /seata-namingserver-setup.sh
 JAVA_OPT=${JAVA_OPT//"//"/"/"}
